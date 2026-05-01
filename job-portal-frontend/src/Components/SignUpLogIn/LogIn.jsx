@@ -1,4 +1,4 @@
-import { Button, PasswordInput, TextInput } from "@mantine/core";
+import { Button, LoadingOverlay, PasswordInput, TextInput } from "@mantine/core";
 import { IconAt, IconLock, IconX, IconCheck } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -72,7 +72,7 @@ const LogIn = () => {
         .catch((err) => {
           const errorMessage =
             err?.response?.data?.errorMessage || "Something went wrong";
-
+          setLoading(false);
           console.log(err.response);
           notifications.show({
             title: "Login Failed",
@@ -91,6 +91,12 @@ const LogIn = () => {
   return (
     <>
       <div className="w-1/2 px-20 flex flex-col justify-center gap-6">
+        <LoadingOverlay
+          visible={loading}
+          zIndex={1000}
+          overlayProps={{ radius: 'sm', blur: 2 }}
+          loaderProps={{ color: 'pink', type: 'bars' }}
+        />
         <div className="text-2xl font-semibold">Create your Account </div>
         <TextInput
           name="email"
