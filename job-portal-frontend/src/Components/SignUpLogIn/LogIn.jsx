@@ -37,7 +37,7 @@ const LogIn = () => {
       accountType: data.accountType,
     };
 
-    setLoading(true);
+    
     let valid = true,
       newFormError = {};
 
@@ -50,6 +50,7 @@ const LogIn = () => {
     console.log(valid);
 
     if (valid) {
+      setLoading(true);
       loginUser(payload)
         .then((res) => {
           console.log(res);
@@ -95,7 +96,7 @@ const LogIn = () => {
           visible={loading}
           zIndex={1000}
           overlayProps={{ radius: 'sm', blur: 2 }}
-          loaderProps={{ color: 'pink', type: 'bars' }}
+          loaderProps={{ color: 'orient.4', type: 'bars' }}
         />
         <div className="text-2xl font-semibold">Create your Account </div>
         <TextInput
