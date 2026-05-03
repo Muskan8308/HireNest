@@ -66,7 +66,7 @@ const LogIn = () => {
           });
           setTimeout(() => {
             setLoading(false);
-            dispatch(setUser(res.data));
+            dispatch(setUser(res));
             navigate("/");
           }, 4000);
         })

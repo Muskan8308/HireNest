@@ -3,17 +3,15 @@ import { getItem, removeItem, setItem } from "../Services/LocalStorageServices"
 
 const UserSlice = createSlice({
     name : "user",
-    initialState : getItem("user"),
+    initialState : getItem("user") || null,
     reducers : {
         setUser : (state, action) => {
             setItem("user", action.payload);
-            state = getItem("user");
-            return state;
+            return action.payload;
         },
-        removeUser : (state) => {
+        removeUser : () => {
             removeItem("user");
-            state = null;
-            return state;
+            return null;
         }
     }
 })

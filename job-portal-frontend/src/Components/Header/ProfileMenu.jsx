@@ -9,7 +9,7 @@ import {
   IconLogout2,
 } from "@tabler/icons-react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeUser } from "../../Slices/userSlice";
+import { removeUser } from "../../Slices/UserSlice";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
